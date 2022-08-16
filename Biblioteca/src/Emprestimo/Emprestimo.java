@@ -54,8 +54,12 @@ public class Emprestimo {
 	public int getIdLivro(){
 		return this.idLivro;
 	}
+	public String getEstadoLivro(Livro){
+		return livro.Disponibilidade;
+	}
 	public void novoEmprestimo(int idLivro, int idAmigo, LocalDate dataEmprestimo){
 		this.livro.setDispLivro(Disponibilidade.EMPRESTADO);
+
 	}
 	// demais m�todos
 	// toString
