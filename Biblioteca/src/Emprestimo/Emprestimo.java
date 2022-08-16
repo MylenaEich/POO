@@ -28,38 +28,22 @@ public class Emprestimo {
 		this.dataEmprestimo = dataEmprestimo;
 	}
 
-	public Emprestimo(int idAmigo, int idLivro, LocalDate dataEmprestimo, int date, int time) {
-		this(idAmigo , idLivro  ,dataEmprestimo = LocalDateTime.of(date, time));  // chama construtor da pr�pria classe 
+	public Emprestimo(int idAmigo, int idLivro, LocalDate dataEmprestimo) {
+		this(idAmigo , idLivro  ,dataEmprestimo);  // chama construtor da pr�pria classe 
 	}
 	// getters e setters
-	public void setIdAmigo(){
-		int numAmigos = 0;
-		int i = 0;
-		for(i = 0; i <= numAmigos; i++ ){
-			numAmigos = numAmigos + 1;
-			this.idAmigo = numAmigos;
-		}
-	}
+	
 	public int getIdAmigo(){
 		return this.idAmigo;
-	}
-	public void setIdLivro(){
-		int numLivros = 0;
-		int i = 0;
-		for(i=0; i<=numLivros; i++){
-			numLivros = numLivros + 1;
-			this.idLivro = numLivros;
-		}
 	}
 	public int getIdLivro(){
 		return this.idLivro;
 	}
-	public String getEstadoLivro(Livro){
-		return livro.Disponibilidade;
-	}
+	
 	public void novoEmprestimo(int idLivro, int idAmigo, LocalDate dataEmprestimo){
 		this.livro.setDispLivro(Disponibilidade.EMPRESTADO);
-
+		Emprestimo emprestimo = new Emprestimo(idAmigo,idLivro,dataEmprestimo = LocalDate.now()) ;
+		ListaEmprestimos alEmprestimos.add(emprestimo);
 	}
 	// demais m�todos
 	// toString
