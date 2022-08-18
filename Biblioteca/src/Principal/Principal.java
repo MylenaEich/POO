@@ -23,6 +23,7 @@ public class Principal {
 		idAmigo = amigos.addAmigo("Fulano", "(41) 99876-5432");
 
 		idAmigo = amigos.addAmigo("Ciclano", "(47) 98123-2121");
+		System.out.println("Hello Word!");
 
 		/*
 		for (int i =0; i < amigos.getListaAmigosSize(); i++) {
