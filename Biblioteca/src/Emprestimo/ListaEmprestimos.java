@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import java.util.ArrayList;
 
+import Biblioteca.Biblioteca;
 import Biblioteca.Disponibilidade;
 import Biblioteca.Livro;
 
@@ -18,10 +19,10 @@ public class ListaEmprestimos {
 		this.alEmprestimos = new ArrayList<Emprestimo>();
 	}
 
-	public void addEmprestimo(int idAmigo, int idLivro, LocalDate dataEmprestimo) {
+	public void addEmprestimo(int idAmigo, int idLivro, LocalDate dataEmprestimo, Biblioteca biblioteca) {
 		Emprestimo emprestimo = new Emprestimo(idAmigo, idLivro, dataEmprestimo);
 		alEmprestimos.add(emprestimo);
-		setDispLivro(EMPRESTADO);
+		biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.EMPRESTADO);
 
 	}
 
