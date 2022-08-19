@@ -1,12 +1,12 @@
 package Biblioteca;
 
-public class Livro implements Comparable<Livro>{
+public class Livro implements Comparable<Livro> {
 	private int idLivro;
 	private String titulo;
 	private String autor;
 	private float preco;
 	private Disponibilidade dispLivro;
-	
+
 	// construtor
 	public Livro(int idLivro, String titulo, String autor, float preco, Disponibilidade dispLivro) {
 		super();
@@ -15,7 +15,7 @@ public class Livro implements Comparable<Livro>{
 		this.autor = autor;
 		this.preco = preco;
 		this.dispLivro = dispLivro;
-		
+
 	}
 
 	public int getIdLivro() {
@@ -57,15 +57,12 @@ public class Livro implements Comparable<Livro>{
 	public void setDispLivro(Disponibilidade dispLivro) {
 		this.dispLivro = dispLivro;
 	}
-	
-	
-	
+
 	// métodos getters, setters, toString, compareTo etc conforme a
 	// modelagem e encapsulamento especificados mais o que equipe decidir implementa
 	@Override
 	public int compareTo(Livro livro) {
-        return this.titulo.toUpperCase().compareTo(livro.getTitulo().toUpperCase());
+		return this.titulo.toUpperCase().compareTo(livro.getTitulo().toUpperCase());
 	}
 
-	
 }

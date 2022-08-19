@@ -18,7 +18,6 @@ public class Principal {
 	public static void main(String[] args) {
 
 		int opcao;
-
 		int idAmigo;
 		idAmigo = amigos.addAmigo("Fulano", "(41) 99876-5432");
 
