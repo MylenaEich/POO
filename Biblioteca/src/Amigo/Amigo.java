@@ -1,6 +1,7 @@
 package Amigo;
-public class Amigo {
-	
+
+public class Amigo implements Comparable<Amigo> {
+
 	private int idAmigo;
 	private String nome;
 	private String celular;
@@ -10,6 +11,10 @@ public class Amigo {
 		this.idAmigo = idAmigo;
 		this.nome = nome;
 		this.celular = celular;
+	}
+
+	public int getidAmigo() {
+		return idAmigo;
 	}
 
 	public String getNome() {
@@ -29,8 +34,9 @@ public class Amigo {
 		return "Amigo [idAmigo =" + idAmigo + ", nome =" + nome + "]";
 	}
 
-	// demais métodos necessários.......
-	// getters e setters
-	// etc
+	@Override
+	public int compareTo(Amigo amigo) {
+		return this.nome.toUpperCase().compareTo(amigo.getNome().toUpperCase());
+	}
 
 }
