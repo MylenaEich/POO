@@ -25,6 +25,15 @@ public class ListaEmprestimos {
 
 	}
 
+	public void Devolver(int idLivro, Biblioteca biblioteca) {
+		for (Emprestimo emprestimo : alEmprestimos) {
+			if (emprestimo.getIdLivro() == idLivro) {
+				emprestimo.setDataDevolução();
+				biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
+			}
+		}
+	}
+
 	// construtor
 	// addEmprestimo
 	// getters e setters

@@ -68,6 +68,9 @@ public class Principal {
 				case 3:
 					emprestarLivro();
 					break;
+				case 4:
+					devolverLivro();
+					break;
 				case 7:
 					listarBib();
 					break;
@@ -131,6 +134,17 @@ public class Principal {
 		emprestimos.addEmprestimo(idAmigo, idLivro, bib);
 	}
 
+	private static void devolverLivro() {
+
+		int idLivro;
+
+		System.out.println("\n==> Sistema de devolução\n");
+		System.out.println("   Código do livro para devolução: ");
+		idLivro = scanner.nextInt();
+
+		emprestimos.Devolver(idLivro, bib);
+	}
+
 	private static void listarBib() {
 
 		System.out.println("\n==> Listagem de livros\n");
@@ -146,7 +160,7 @@ public class Principal {
 			System.out.println("   Preco: " + livro.getPreco() + "\n");
 			investimento = investimento + livro.getPreco();
 		}
-		
+
 		bib.setInvestimento(investimento);
 		System.out.println("   Investimento da biblioteca: " + investimento + "\n");
 	}

@@ -1,11 +1,6 @@
 package Emprestimo;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-
-import Amigo.Amigo;
-import Biblioteca.Disponibilidade;
-import Biblioteca.Livro;
 
 public class Emprestimo {
 
@@ -39,6 +34,9 @@ public class Emprestimo {
 		return this.idLivro;
 	}
 
+	public void setDataDevolução() {
+		this.dataDevolucao = LocalDate.now();
+	}
 	// demais m�todos
 	// toString
 
