@@ -27,7 +27,11 @@ public class ListaAmigos {
 	}
 
 	public Amigo getAmigo(int i) {
-		return alAmigos.get(i);
+		int j = 0;
+		while (j != i) {
+			j++;
+		}
+		return alAmigos.get(j);
 	}
 
 	public ArrayList<Amigo> getListaAmigos() {
