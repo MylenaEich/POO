@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 import Biblioteca.Biblioteca;
 import Biblioteca.Disponibilidade;
-import Biblioteca.Livro;
 
 public class ListaEmprestimos {
 
@@ -19,11 +18,20 @@ public class ListaEmprestimos {
 		this.alEmprestimos = new ArrayList<Emprestimo>();
 	}
 
-	public void addEmprestimo(int idAmigo, int idLivro, LocalDate dataEmprestimo, Biblioteca biblioteca) {
-		Emprestimo emprestimo = new Emprestimo(idAmigo, idLivro, dataEmprestimo);
+	public void addEmprestimo(int idAmigo, int idLivro, Biblioteca biblioteca) {
+		Emprestimo emprestimo = new Emprestimo(idAmigo, idLivro, LocalDate.now());
 		alEmprestimos.add(emprestimo);
 		biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.EMPRESTADO);
 
+	}
+
+	public void Devolver(int idLivro, Biblioteca biblioteca) {
+		for (Emprestimo emprestimo : alEmprestimos) {
+			if (emprestimo.getIdLivro() == idLivro) {
+				emprestimo.setDataDevolução();
+				biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
+			}
+		}
 	}
 
 	// construtor

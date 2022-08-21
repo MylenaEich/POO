@@ -33,8 +33,8 @@ public class Principal {
 
 		int idLivros;
 
-		idAmigo = bib.addLivro("A hora da estrela", "Clarice Lispector", 20, Disponibilidade.DISPONIVEL);
 		idAmigo = bib.addLivro("Harry Potter I", "J.K", 30, Disponibilidade.DISPONIVEL);
+		idAmigo = bib.addLivro("A hora da estrela", "Clarice Lispector", 20, Disponibilidade.DISPONIVEL);
 
 		/*
 		 * for (int i =0; i < bib.getBibliotecaSize(); i++) {
@@ -65,9 +65,12 @@ public class Principal {
 				case 2:
 					cadastrarAmigo();
 					break;
-				// case 3:
-				// emprestarLivro();
-				// break;
+				case 3:
+					emprestarLivro();
+					break;
+				case 4:
+					devolverLivro();
+					break;
 				case 7:
 					listarBib();
 					break;
@@ -126,8 +129,20 @@ public class Principal {
 
 		listarAmigos();
 		System.out.println("   Código do amigo: \n");
+		idAmigo = scanner.nextInt();
+
+		emprestimos.addEmprestimo(idAmigo, idLivro, bib);
+	}
+
+	private static void devolverLivro() {
+
+		int idLivro;
+
+		System.out.println("\n==> Sistema de devolução\n");
+		System.out.println("   Código do livro para devolução: ");
 		idLivro = scanner.nextInt();
 
+		emprestimos.Devolver(idLivro, bib);
 	}
 
 	private static void listarBib() {
@@ -146,6 +161,7 @@ public class Principal {
 			investimento = investimento + livro.getPreco();
 		}
 
+		bib.setInvestimento(investimento);
 		System.out.println("   Investimento da biblioteca: " + investimento + "\n");
 	}
 

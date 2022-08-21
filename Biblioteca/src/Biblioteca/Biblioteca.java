@@ -1,4 +1,5 @@
 package Biblioteca;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -16,27 +17,37 @@ public class Biblioteca {
 		this.alLivros = new ArrayList<Livro>();
 		investimento = 0;
 	}
-	//Cadastrar livro
-	public int addLivro (String titulo, String autor, float preco, Disponibilidade dispLivro) {
-		int idLivro = alLivros.size() + 1; 
+
+	// Cadastrar livro
+	public int addLivro(String titulo, String autor, float preco, Disponibilidade dispLivro) {
+		int idLivro = alLivros.size() + 1;
 		Livro livro = new Livro(idLivro, titulo, autor, preco, dispLivro);
 		alLivros.add(livro);
 		return idLivro;
 	}
-	
-	public int getBibliotecaSize(){
+
+	public int getBibliotecaSize() {
 		return alLivros.size();
 	}
-	
-	public Livro getLivro(int i){
-		return alLivros.get(i);
+
+	// Escolhe de acordo com o ID, independendo se houve ordenamento
+	public Livro getLivro(int i) {
+		int j = 0;
+		while (j != i) {
+			j++;
+		}
+		return alLivros.get(j);
 	}
-	
-	public ArrayList<Livro> getBiblioteca(){
+
+	public ArrayList<Livro> getBiblioteca() {
 		Collections.sort(alLivros);
 		return alLivros;
 	}
-	// demais m�todos getters, setters, toString, compareTo (para ordena��o) etc 
-	// conforme a modelagem e encapsulamento especificados 
+
+	public void setInvestimento(float investimento) {
+		this.investimento = investimento;
+	}
+	// demais m�todos getters, setters, toString, compareTo (para ordena��o) etc
+	// conforme a modelagem e encapsulamento especificados
 	// mais o que estudante decidir implementar
 }
