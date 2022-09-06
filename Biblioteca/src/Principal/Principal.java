@@ -65,6 +65,7 @@ public class Principal {
 				case 2:
 					cadastrarAmigo();
 					break;
+
 				case 3:
 					emprestarLivro();
 					break;
@@ -95,7 +96,7 @@ public class Principal {
 
 		System.out.print("   preco: ");
 		preco = scanner.nextFloat();
-
+		New Livro (titulo, autor, preco, Disponibilidade. DISPONIVEL);
 		bib.addLivro(titulo, autor, preco, Disponibilidade.DISPONIVEL);
 	}
 
@@ -155,6 +156,7 @@ public class Principal {
 		alLivros = bib.getBiblioteca(); // Ordena de A-Z pelo titulo
 
 		for (Livro livro : alLivros) {
+			System.out.println("   ID: " + livro.getIdLivro());
 			System.out.println("   Titulo: " + livro.getTitulo());
 			System.out.println("   Situacao: " + livro.getDispLivro());
 			System.out.println("   Preco: " + livro.getPreco() + "\n");
