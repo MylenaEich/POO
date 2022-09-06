@@ -72,6 +72,10 @@ public class Principal {
 				case 4:
 					devolverLivro();
 					break;
+				case 5:
+					ListarEmprestimos();
+				case 6:
+					HistoricoEmprestimos();
 				case 7:
 					listarBib();
 					break;
@@ -96,7 +100,6 @@ public class Principal {
 
 		System.out.print("   preco: ");
 		preco = scanner.nextFloat();
-		New Livro (titulo, autor, preco, Disponibilidade. DISPONIVEL);
 		bib.addLivro(titulo, autor, preco, Disponibilidade.DISPONIVEL);
 	}
 
@@ -121,12 +124,19 @@ public class Principal {
 
 		int idLivro;
 		int idAmigo;
+		Disponibilidade dispLivro = Disponibilidade.CONSULTALOCAL;
 
 		System.out.println("\n==> Sistema de emprestimo\n");
 		scanner.nextLine();
 
-		System.out.println("   Código do livro: ");
+		System.out.println("   Código do livro: \n");
 		idLivro = scanner.nextInt();
+		// dispLivro = bib.getLivro(idLivro).getDispLivro();
+		// if(dispLivro == Disponibilidade.EMPRESTADO){
+		// 	System.out.println("Este livro não está disponível!");
+		// 	idLivro = scanner.nextInt();
+		// }
+		// else System.out.println("Livro Emprestado!");
 
 		listarAmigos();
 		System.out.println("   Código do amigo: \n");
@@ -138,14 +148,41 @@ public class Principal {
 	private static void devolverLivro() {
 
 		int idLivro;
+		Disponibilidade dispLivro = Disponibilidade.CONSULTALOCAL;
 
 		System.out.println("\n==> Sistema de devolução\n");
-		System.out.println("   Código do livro para devolução: ");
+		System.out.println("   Código do livro para devolução: \n");
 		idLivro = scanner.nextInt();
+		// dispLivro = bib.getLivro(idLivro).getDispLivro();
+		// if(dispLivro != Disponibilidade.EMPRESTADO){
+		// 	System.out.println("Esse Livro não foi emprestado!");
+		// }
+		// else System.out.println("O livro foi devolvido!");
 
-		emprestimos.Devolver(idLivro, bib);
+		emprestimos.Devolver(idLivro, bib); /// -> como isso?
 	}
-
+	private static void ListarEmprestimos(){
+		System.out.println("\n==> Emprestimos atuais\n");
+		ArrayList<Emprestimo> alEmprestimos;
+		alEmprestimos = emprestimos.getListaEmprestimos();
+		for(Emprestimo emprestimo : alEmprestimos){
+			System.out.println(" Livro: " + emprestimo.getTitulo());
+			System.out.println(" Amigo: " + emprestimo.getNome());
+			System.out.println(" Data Emprestimo: " + emprestimo.getDataEmprestimo());
+		}
+	
+	}
+	private static void HistoricoEmprestimos(){
+		System.out.println("\n==> Historico de Emprestimos\n");
+		ArrayList<Emprestimo> alHistEmprestimos;
+		alHistEmprestimos = emprestimos.getHistorico();
+		for(Emprestimo emprestimo : alHistEmprestimos){
+			System.out.println(" Livro: " + emprestimo.getTitulo());
+			System.out.println(" Amigo: " + emprestimo.getNome());
+			System.out.println(" Data Emprestimo: " + emprestimo.getDataEmprestimo());
+			System.out.println(" Data Devolucao: " + emprestimo.getDataDevolucao());
+		}
+	}
 	private static void listarBib() {
 
 		System.out.println("\n==> Listagem de livros\n");
@@ -174,7 +211,7 @@ public class Principal {
 		alAmigos = amigos.getListaAmigos();
 
 		for (Amigo amigo : alAmigos) {
-			System.out.println("   Nome: " + amigo.getNome() + "Código: " + amigo.getidAmigo());
+			System.out.println("\n Nome: " + amigo.getNome() + "\n Código: " + amigo.getidAmigo());
 		}
 
 	}

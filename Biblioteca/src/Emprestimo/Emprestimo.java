@@ -2,7 +2,13 @@ package Emprestimo;
 
 import java.time.LocalDate;
 
+import Amigo.*;
+import Biblioteca.*;
+
 public class Emprestimo {
+
+	private static Amigo amigo;
+	private static Livro livro;
 
 	private int idAmigo;
 	private int idLivro;
@@ -24,19 +30,42 @@ public class Emprestimo {
 		this.idLivro = idAmigo;
 		this.dataEmprestimo = dataEmprestimo;
 	}
+	public Emprestimo(int idLivro, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
+		super();
+		this.idLivro = idAmigo;
+		this.dataEmprestimo = dataEmprestimo;
+		this.dataDevolucao = dataDevolucao;
+	}
+
 	// getters e setters
 
 	public int getIdAmigo() {
 		return this.idAmigo;
 	}
+	public String getNome(){
+		return amigo.getNome();
+	}
 
 	public int getIdLivro() {
 		return this.idLivro;
 	}
+	public String getTitulo(){
+		return livro.getTitulo();
+	}
 
+	public LocalDate getDataEmprestimo() {
+		return dataEmprestimo;
+	}
+	public void setDataEmprestimo() {
+		this.dataEmprestimo = LocalDate.now();
+	}
+	public LocalDate getDataDevolucao(){
+		return dataDevolucao;
+	}
 	public void setDataDevolução() {
 		this.dataDevolucao = LocalDate.now();
 	}
+	
 	// demais m�todos
 	// toString
 
