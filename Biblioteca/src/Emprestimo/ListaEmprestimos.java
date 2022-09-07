@@ -29,32 +29,24 @@ public class ListaEmprestimos {
 		Emprestimo emprestimo = new Emprestimo(idAmigo, idLivro, dataEmp);
 		alEmprestimos.add(emprestimo);
 		biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.EMPRESTADO);
-
 	}
 
-	// public void Devolver(int idLivro, Biblioteca biblioteca) {
-	// 	for (Emprestimo emprestimo : alEmprestimos) {
-	// 		if (emprestimo.getIdLivro() == idLivro) {
-	// 			emprestimo.setDataDevolução();
-	// 			biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
-	// 			alEmprestimos.remove(emprestimo);
-	// 			LocalDate dataEmprestimo = emprestimo.getDataEmprestimo();
-	// 			LocalDate dataDevolucao = LocalDate.now();
-	// 			Emprestimo devolucao = new Emprestimo(idLivro, dataEmprestimo, dataDevolucao);
-	// 			alHistEmprestimos.add(devolucao);
-	// 		}
-	// 	}
-	// }
 	public void Devolver(int idLivro, Biblioteca biblioteca) {
-		for (Emprestimo emprestimo: alEmprestimos){
-			biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
-			LocalDate dataEmprestimo = emprestimo.getDataEmprestimo();
-			LocalDate dataDevolucao = LocalDate.now();
-			Emprestimo devolucao = new Emprestimo(idLivro, dataEmprestimo, dataDevolucao);
-			alEmprestimos.add(devolucao);
-		}	
-		
+		for (Emprestimo emprestimo : alEmprestimos) {
+			if (emprestimo.getIdLivro() == idLivro) {
+				emprestimo.setDataDevolução();
+				System.out.println(biblioteca.getLivro(idLivro).getTitulo() + " Devolvido! \n");
+				biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
+			}
+		}
 	}
+	// public void Devolver(int idLivro, Biblioteca biblioteca) {
+	// 	LocalDate dataDevolucao = LocalDate.now();
+	// 	Emprestimo devolucao = new Emprestimo(idLivro, dataEmprestimo, dataDevolucao);
+	// 	alEmprestimos.add(devolucao);
+	// 	biblioteca.getLivro(idLivro).setDispLivro(Disponibilidade.DISPONIVEL);
+		
+	// }
 
 
 

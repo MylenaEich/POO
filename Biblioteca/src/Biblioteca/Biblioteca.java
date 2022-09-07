@@ -32,15 +32,11 @@ public class Biblioteca {
 
 	// Escolhe de acordo com o ID, independendo se houve ordenamento
 	public Livro getLivro(int i) {
-		int j = 0;
-		while (j != i) {
-			j++;
-		}
-		return alLivros.get(j);
+		
+		return alLivros.get(i-1);
 	}
 
 	public ArrayList<Livro> getBiblioteca() {
-		Collections.sort(alLivros);
 		return alLivros;
 	}
 

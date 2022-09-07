@@ -29,21 +29,13 @@ public class Emprestimo {
 		this.idAmigo = idAmigo;
 		this.idLivro = idAmigo;
 		this.dataEmprestimo = dataEmprestimo;
-	}
-	public Emprestimo(int idLivro, LocalDate dataEmprestimo, LocalDate dataDevolucao) {
-		super();
-		this.idLivro = idAmigo;
-		this.dataEmprestimo = dataEmprestimo;
-		this.dataDevolucao = dataDevolucao;
+		this. dataDevolucao = null;
 	}
 
 	// getters e setters
 
 	public int getIdAmigo() {
 		return this.idAmigo;
-	}
-	public String getNome(){
-		return amigo.getNome();
 	}
 
 	public int getIdLivro() {

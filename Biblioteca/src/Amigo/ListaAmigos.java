@@ -6,6 +6,7 @@ import java.util.Collections;
 public class ListaAmigos {
 
 	private ArrayList<Amigo> alAmigos;
+	private static Amigo amigo;
 
 	// construtor cria alAmigos, ArrayList que fica encapsulado na classe
 	// ListaAmigos
@@ -25,13 +26,12 @@ public class ListaAmigos {
 	public int getListaAmigosSize() {
 		return alAmigos.size();
 	}
+	public int getIdAmigo(String nome){
+		return amigo.getidAmigo();
+	}
 
 	public Amigo getAmigo(int i) {
-		int j = 0;
-		while (j != i) {
-			j++;
-		}
-		return alAmigos.get(j);
+		return alAmigos.get(i-1);
 	}
 
 	public ArrayList<Amigo> getListaAmigos() {
